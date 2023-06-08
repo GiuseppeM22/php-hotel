@@ -54,6 +54,23 @@
 
         ?>
 
+        <?php 
+
+            $parkin = ($_GET['parcheggio'] ?? 'off')
+
+        ?>
+
+        <form action="index.php" method="get">
+            <span>Seleziona per Parcheggio</span>
+            <input type="checkbox" name="parcheggio" id=""  <?php echo ($parkin == 'on' ? 'checked' : '') ?>>
+            <input type="submit" value="Invia">
+        </form>
+
+        
+
+
+<div> il testo è: <?php echo $parkin ?></div>
+        
 <table class="table">
   <thead>
     <tr>
@@ -67,7 +84,7 @@
 
   <tbody>
       <?php foreach($hotels as $hotel) { ?>
-       <?php $park = $hotel["parking"] ? '<i class="fa-solid fa-square-parking" style="color: #00ff04;"></i>' : '<i class="fa-solid fa-square-parking" style="color: #ff0000;"></i>' ?>
+        <?php $park = $hotel["parking"] ? '<i class="fa-solid fa-square-parking" style="color: #00ff04;"></i>' : '<i class="fa-solid fa-square-parking" style="color: #ff0000;"></i>' ?>
     <tr>
       <td><?php echo $hotel['name'] ?></td>
       <td><?php echo $hotel['description'] ?></td>
@@ -83,11 +100,6 @@
 
   </tbody>
 </table>
-
-        
-       
-        
-        
         
 </body>
 </html>
